@@ -3,8 +3,8 @@ import requests
 import secrets
 
 
-CLIENT_ID = 'd1b6de05b5d14675f54d1772d7804985'
-CLIENT_SECRET = 'e7e89969a9181d55aa13a5b1d51ec23688440275f8d82330f3196c4467fb97f1'
+CLIENT_ID = 'CLIENT_ID'
+CLIENT_SECRET = 'CLIENT_SECRET'
 
 
 # 1. Generate a new Code Verifier / Code Challenge.
