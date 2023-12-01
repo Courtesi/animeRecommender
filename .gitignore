@@ -5,4 +5,8 @@ __python__/*
 # except this .gitignore
 !.gitignore
 
+<<<<<<< HEAD
 databases
+=======
+databases
+>>>>>>> 3d3e76eaead2ed38a06fd8ec40d015f989d97e88
