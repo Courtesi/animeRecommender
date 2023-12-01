@@ -1,9 +1,9 @@
 import requests
 import json
+from client_id import CLIENT_ID
 
 def get_request() -> list:
     res = []
-    CLIENT_ID = 'd1b6de05b5d14675f54d1772d7804985'
 
     username = input("Enter a username:")
 

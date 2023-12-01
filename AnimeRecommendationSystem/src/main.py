@@ -110,6 +110,7 @@ def createRecommendations():
             print("Anime:", entry[1], "\n", recommendations)
         else:
             print("None for", entry[1])
+        print("\n")
 
     # alreadySeenSet = set()
     # #Put all the anime titles in userAnimeList into recommendations set as they are already watched by the user
