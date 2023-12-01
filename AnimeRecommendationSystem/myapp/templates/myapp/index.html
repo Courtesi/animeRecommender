@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
     <title>Username Form</title>
 </head>
+
 <body>
-    <form action="{% url 'process_form' %}" method="post">
-        {% csrf_token %}
-        <label for="username">Enter Username:</label>
-        <input type="text" id="username" name="username" required>
-        <button type="submit">Submit</button>
-    </form>
+    <!-- <div class="center-container">
+        <div class="input-group">
+            <input class="input" required type="text" id="username">
+            <label class="label" for="username">Username</label>
+        </div>
+    </div> -->
+    
+    <div class="center-container">
+        <form action="{% url 'process_form' %}" method="post">
+            {% csrf_token %}
+            <label for="username">Enter Username:</label>
+            <input type="text" id="username" name="username" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>

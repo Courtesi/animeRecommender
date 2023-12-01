@@ -2,10 +2,10 @@ import requests
 import json
 from client_id import CLIENT_ID
 
-def get_request() -> list:
+def get_request(username) -> list:
     res = []
 
-    username = input("Enter a username:")
+    # username = input("Enter a username:")
 
     url = f'https://api.myanimelist.net/v2/users/{username}/animelist?fields=list_status'
 

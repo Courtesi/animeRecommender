@@ -1,13 +1,14 @@
 import pandas as pd
+import numpy as np
 import statistics as stats
 from math import sqrt
 import json
-from contentbased import organizeDF, initializeDF, findRecommendation
+import time
+
 from getrequest import get_request
 import warnings
-import time
-import numpy as np
 from sklearn.neighbors import NearestNeighbors
+
 warnings.filterwarnings('ignore')
 
 pd.options.mode.chained_assignment = None  # default='warn'
@@ -146,8 +147,8 @@ def findConfidence(ups, downs):
 
     return (left - right) / under
 
-def createRecommendations():
-    userAnimeList = get_request()
+def createRecommendations(username):
+    userAnimeList = get_request(username)
     if len(userAnimeList) == 0:
         print("Your list is empty! Could not find any recommendations. :(")
         return
@@ -162,14 +163,27 @@ def createRecommendations():
     df = pd.read_csv("databases/anime_cosine_sim.csv")
     end_time = time.time()
     print("Time Taken:", end_time - start_time)
+
+    df_list = []
+    list_names = []
     for entry in userAnimeList:
+        list_names.append(entry[1])
         if entry[1] in df.columns:
-            recommendations = pd.DataFrame(df.nlargest(4,entry[1])['Name'])
+            recommendations = pd.DataFrame(df.nlargest(5,entry[1])['Name'])
             recommendations = recommendations[recommendations['Name']!=entry[1]]
-            print("Anime:", entry[1], "\n", recommendations)
-        else:
-            print("None for", entry[1])
-        print("\n")
+            # print("Anime:", entry[1], "\n", recommendations)
+            df_list.append(recommendations)
+        # else:
+        #     print("None for", entry[1])
+        # print("\n")
+    
+    combined_df = pd.concat(df_list)
+
+    movie_counts = combined_df.groupby('Name').size().reset_index(name='Count')
+
+    df_filtered = movie_counts[~movie_counts['Name'].isin(list_names)]
+
+    print(df_filtered)
 
     # alreadySeenSet = set()
     # #Put all the anime titles in userAnimeList into recommendations set as they are already watched by the user
@@ -213,5 +227,5 @@ if __name__ == "__main__":
 #     y = findRecommendation(test, x, "Sakura-sou no Pet na Kanojo")
 #     print(y)
 
-    createRecommendations()
+    createRecommendations("ahhlmao")
 
