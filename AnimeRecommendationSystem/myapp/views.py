@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
 
 def index(request):
-    return render(request, 'index.html')
+    template = loader.get_template("myapp/index.html")
+    context = {"testing":"hello"}
+    return HttpResponse(template.render(context, request))
 
 def process_form(request):
     if request.method == 'POST':
@@ -12,9 +15,10 @@ def process_form(request):
         # For example, print the username:
         print(f"Received username: {username}")
 
+        template = loader.get_template("myapp/result.html")
         # Add your Python script execution logic here
-
-        return render(request, 'result.html', {'username': username})
+        context = {"username":username}
+        return HttpResponse(template.render(context, request))
 
     # Handle GET requests or other cases
     return HttpResponse("Invalid request method")
