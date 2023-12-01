@@ -1,0 +1,4 @@
+myapp/__pycache__
+myapp/migrations
+
+src/__pycache__
