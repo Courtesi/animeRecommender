@@ -8,3 +8,6 @@ __python__/*
 databases
 
 AnimeRecommendationSystem/src/client_id.py
+
+AnimeRecommendationSystem/myapp/__pycache__
+AnimeRecommendationSystem/src/__pycache__
