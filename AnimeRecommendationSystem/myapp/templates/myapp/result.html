@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,44 @@
 </head>
 <body>
     <p>Username: {{ username }}</p>
-    <!-- Add any additional result content here -->
 </body>
 </html>
+ -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Window Sliding</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id = "welcome">
+        <p>Welcome {{username}}</p>
+    </div>
+    <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/photo-1682685797365-41f45b562c0a.avif' %}" draggable="false">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/photo-1700771266232-7a31af68eb31.avif' %}" draggable="false">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/photo-1682687220566-5599dbbebf11.avif' %}" draggable="false">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/photo-1701372554658-f60c1157addd.avif' %}" draggable="false">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/photo-1701467447993-9d000cc7a579.avif' %}" draggable="false">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/photo-1700993229524-7b771e62875f.avif' %}" draggable="false">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/premium_photo-1701214498603-59f754e55543.avif' %}" draggable="false">
+        {% load static %}
+        <img class="image" src="{% static 'myapp/images/premium_photo-1701127871438-af582cdd8c55.avif' %}" draggable="false">
+    </div>
+  {% load static %}
+	<script src="{% static 'myapp/index.js' %}"></script>
+  </body>
+</html>
+

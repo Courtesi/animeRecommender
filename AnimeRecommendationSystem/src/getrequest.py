@@ -31,5 +31,12 @@ def get_request(username) -> list:
     
     return res
 
-# if __name__ == "__main__":
-#     get_request()
+def get_anime_request():
+    res = requests.get("https://api.nekosapi.com/v3/images")
+    res.raise_for_status()
+    
+    data = res.json()
+    print(data)
+
+if __name__ == "__main__":
+    get_anime_request()

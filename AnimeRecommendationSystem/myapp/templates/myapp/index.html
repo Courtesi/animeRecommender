@@ -9,20 +9,14 @@
 </head>
 
 <body>
-    <!-- <div class="center-container">
+    <!-- <div class="" -->
+    <form action="{% url 'process_form' %}" method="post">
+        {% csrf_token %}
         <div class="input-group">
-            <input class="input" required type="text" id="username">
+            <input class="input" required type="text" id="username" name="username">
             <label class="label" for="username">Username</label>
+            <button class="button-36" role="button" type="submit">I'm Feeling Lucky</button>
         </div>
-    </div> -->
-    
-    <div class="center-container">
-        <form action="{% url 'process_form' %}" method="post">
-            {% csrf_token %}
-            <label for="username">Enter Username:</label>
-            <input type="text" id="username" name="username" required>
-            <button type="submit">Submit</button>
-        </form>
-    </div>
+    </form>
 </body>
 </html>

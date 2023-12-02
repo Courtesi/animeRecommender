@@ -13,7 +13,7 @@ def process_form(request):
         # Now you can run your Python script with the 'username' variable
 
         # For example, print the username:
-        print(f"Received username: {username}")
+        # print(f"Received username: {username}")
 
         template = loader.get_template("myapp/result.html")
         # Add your Python script execution logic here

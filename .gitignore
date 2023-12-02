@@ -1,13 +1,8 @@
-# do NOT track Python compilation files
-*.py[cod]
-__python__/*
-
 # except this .gitignore
 !.gitignore
 
+#Ignore databases folder
 databases
 
+#Ignore client_id.py file
 AnimeRecommendationSystem/src/client_id.py
-
-AnimeRecommendationSystem/myapp/__pycache__
-AnimeRecommendationSystem/src/__pycache__
